@@ -1,7 +1,7 @@
 
-# Linked List Library
+# intlist.h
 
-This C library provides a set of functions to work with singly linked lists of integers. It includes basic operations like insertion, deletion, and traversal, as well as advanced utilities such as reversing the list or removing items by index or value.
+This C library provides a set of functions to work with singly linked lists of integers. It includes basic operations like insertion, deletion, and traversal, as well as advanced utilities such as insertion sorting the list.
 
 ## Features
 
