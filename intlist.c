@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "list.h"
+#include "intlist.h"
 
 node_t *list_head(list_t list)
 {
@@ -39,6 +39,22 @@ node_t *list_item_index(list_t list, unsigned int index)
   if (!curr)
     return NULL;
   return curr;
+}
+
+int list_contains(list_t list, int value)
+{
+  for (node_t *curr = *list; curr; curr = curr->next)
+    if (curr->value == value)
+      return 1;
+  return 0;
+}
+
+size_t list_length(list_t list)
+{
+  size_t i = 0;
+  for (node_t *curr = *list; curr; curr = curr->next)
+    ++i;
+  return i;
 }
 
 void list_push(list_t list, int item)
@@ -280,22 +296,6 @@ void list_reverse_group(list_t list, unsigned int n)
     curr2 = curr2->next;
   }
   list_free(&aux);
-}
-
-size_t list_length(list_t list)
-{
-  size_t i = 0;
-  for (node_t *curr = *list; curr; curr = curr->next)
-    ++i;
-  return i;
-}
-
-int list_contains(list_t list, int value)
-{
-  for (node_t *curr = *list; curr; curr = curr->next)
-    if (curr->value == value)
-      return 1;
-  return 0;
 }
 
 void list_free(list_t list)
